@@ -49,7 +49,7 @@ test:
   database: nginx_unicorn_test
   pool: 5
   username: souvik
-  password:
+  password: p@ssw0rd
 
 production:
   adapter: postgresql
