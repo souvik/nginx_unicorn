@@ -8,6 +8,9 @@ NginxUnicorn::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get '/login', to: 'sessions#new', as: :login
+  post '/create', to: 'sessions#create', as: :create_session
+
+  get '/users/:screen_name/show', to: 'users#show', as: :profile
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
