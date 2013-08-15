@@ -43,9 +43,11 @@ gem 'unicorn'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'dp-rails-four'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'database_cleaner', '~> 1.1.1'
   gem 'spork-rails', git: 'https://github.com/sporkrb/spork-rails.git'
+  gem 'faker', '~> 1.2.0'
 end
 
 # Use Capistrano for deployment

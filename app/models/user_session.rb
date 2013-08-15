@@ -2,10 +2,12 @@ class UserSession
   attr_reader :user
 
   def initialize(email='', password='')
-    @user = User.where(email: email, password: password).first || AnonymousUser.new
+    @password = password
+    @user = User.where(email: email).first || AnonymousUser.new
   end
 
   def valid?
-    @user.class == User
+    return false unless @user.class == User
+    @user.authentic_user?(@password)
   end
 end
