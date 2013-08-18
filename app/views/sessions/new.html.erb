@@ -1,5 +1,6 @@
 <div class="login-form-container">
   <div class=login-form>
+    <%= render partial: 'shared/display_flash_msg' %>
     <%= form_tag create_session_path do %>
       <div class="form-row">
         <%= label_tag :email %>

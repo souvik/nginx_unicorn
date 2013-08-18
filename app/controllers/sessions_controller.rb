@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       session[:screen_name] = current_user.screen_name
       redirect_to profile_path(current_user.screen_name)
     else
+      flash[:notice] = "Invalid Email/Password"
       render action: :new
     end
   end
