@@ -3,13 +3,13 @@
     <%= form_tag create_session_path do %>
       <div class="form-row">
         <%= label_tag :email %>
-        <%= text_field_tag :email %>
+        <%= text_field_tag :email, "", class: "validate[required,custom[email]]" %>
       </div>
       <div class="form-row">
         <%= label_tag :password %>
-        <%= password_field_tag :password %>
+        <%= password_field_tag :password, "", class: "validate[required]" %>
       </div>
-      <div class="submit-row">
+      <div class="action-bar">
         <div id="login-link"><%= link_to 'Login', '#' %></div>
       </div>
     <% end -%>
