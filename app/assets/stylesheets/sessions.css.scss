@@ -14,14 +14,19 @@
     border: solid 2px $main-color;
     @include rounded-corners(15px);
 
+    .label {
+      width: 115px;
+    }
+
     #login-link {
-      background-color: $main-color;
-      color: #FFF;
-      width: 45px;
-      padding: 5px 12px;
       margin-left: 120px;
-      font-size: 16px;
-      @include rounded-corners(5px);
+      float: left;
+      @include link-buttons;
+    }
+
+    #signup-link {
+      margin-left: 198px;
+      @include link-buttons;
     }
   }
 }

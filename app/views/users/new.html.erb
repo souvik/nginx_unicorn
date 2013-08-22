@@ -1,0 +1,34 @@
+<div class="signup-form-container">
+  <div class="signup-form">
+    <%= form_for @user do |f| %>
+      <div class="form-row">
+        <div class="row-label label"><%= f.label :first_name %><span> *</span></div>
+        <div class="row-field"><%= f.text_field :first_name %></div>
+      </div>
+      <div class="form-row">
+        <div class="row-label label"><%= f.label :middle_name %></div>
+        <div class="row-field"><%= f.text_field :middle_name %></div>
+      </div>
+      <div class="form-row">
+        <div class="row-label label"><%= f.label :last_name %><span> *</span></div>
+        <div class="row-field"><%= f.text_field :last_name %></div>
+      </div>
+      <div class="form-row">
+        <div class="row-label label"><%= f.label :email %><span> *</span></div>
+        <div class="row-field"><%= f.text_field :email %></div>
+      </div>
+      <div class="form-row">
+        <div class="row-label label"><%= f.label :password %><span> *</span></div>
+        <div class="row-field"><%= f.password_field :password %></div>
+      </div>
+      <div class="form-row">
+        <div class="row-label label"><%= f.label :password_confirmation %><span> *</span></div>
+        <div class="row-field"><%= f.password_field :password_confirmation %></div>
+      </div>
+      <div class="action-bar">
+        <div id="signup-link"><%= link_to 'SignUp', '#' %></div>
+        <div id="cancel-link"><%= link_to 'Cancel', login_path %></div>
+      </div>
+    <% end -%>
+  </div>
+</div>

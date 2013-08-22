@@ -7,6 +7,16 @@ $error-color: #EE0101;
   -webkit-border-radius: $radius;
 }
 
+@mixin link-buttons {
+  background-color: $main-color;
+  color: #FFF;
+  width: 45px;
+  padding: 5px 12px;
+  font-size: 14px;
+  text-align: center;
+  @include rounded-corners(5px);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -40,16 +50,23 @@ body {
   }
 
   .form-row {
-    margin-top: 5px;
-    padding: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
 
-    label {
-      padding: 4px;
+    .row-label {
+      color: $main-color;
+      padding-top: 5px;
+      text-align: left;
+      float: left;
     }
 
-    input {
-      float: right;
-      border: solid 1px $main-color;
+    .row-field {
+      float: left;
+      margin-left: 10px;
+
+      input {
+        border: solid 1px $main-color;
+      }
     }
   }
 
