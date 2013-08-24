@@ -3,27 +3,27 @@
     <%= form_for @user do |f| %>
       <div class="form-row">
         <div class="row-label label"><%= f.label :first_name %><span> *</span></div>
-        <div class="row-field"><%= f.text_field :first_name %></div>
+        <div class="row-field"><%= f.text_field :first_name, class: "validate[required,custom[onlyLetterSp],maxSize[60]]" %></div>
       </div>
       <div class="form-row">
         <div class="row-label label"><%= f.label :middle_name %></div>
-        <div class="row-field"><%= f.text_field :middle_name %></div>
+        <div class="row-field"><%= f.text_field :middle_name, class: "validate[custom[onlyLetterSp],maxSize[60]]" %></div>
       </div>
       <div class="form-row">
         <div class="row-label label"><%= f.label :last_name %><span> *</span></div>
-        <div class="row-field"><%= f.text_field :last_name %></div>
+        <div class="row-field"><%= f.text_field :last_name, class: "validate[required,custom[onlyLetterSp],maxSize[60]]" %></div>
       </div>
       <div class="form-row">
         <div class="row-label label"><%= f.label :email %><span> *</span></div>
-        <div class="row-field"><%= f.text_field :email %></div>
+        <div class="row-field"><%= f.text_field :email, class: "validate[required, custom[email]]" %></div>
       </div>
       <div class="form-row">
         <div class="row-label label"><%= f.label :password %><span> *</span></div>
-        <div class="row-field"><%= f.password_field :password %></div>
+        <div class="row-field"><%= f.password_field :password, class: "validate[required,minSize[6]]" %></div>
       </div>
       <div class="form-row">
         <div class="row-label label"><%= f.label :password_confirmation %><span> *</span></div>
-        <div class="row-field"><%= f.password_field :password_confirmation %></div>
+        <div class="row-field"><%= f.password_field :password_confirmation, class: "validate[required,minSize[6]]" %></div>
       </div>
       <div class="action-bar">
         <div id="signup-link"><%= link_to 'SignUp', '#' %></div>
