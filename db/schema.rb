@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20130812180850) do
     t.string   "middle_name",        limit: 60,  default: ""
     t.string   "last_name",          limit: 60,  default: ""
     t.string   "email",              limit: 100, default: ""
+    t.string   "screen_name",                    default: ""
     t.string   "encrypted_password",             default: ""
     t.string   "zip_code",           limit: 10,  default: ""
     t.string   "location",           limit: 20,  default: ""
