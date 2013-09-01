@@ -26,7 +26,8 @@ working_directory "/home/souvik/personal/nginx_unicorn" # available in 0.94.0+
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 # listen "/path/to/.unicorn.sock", :backlog => 64
-listen 8080, :tcp_nopush => true
+#listen 8080, :tcp_nopush => true
+listen "/home/souvik/personal/nginx_unicorn/tmp/sockets/nginx_unicorn.sock", backlog: 64
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30

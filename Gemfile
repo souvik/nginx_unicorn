@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use mysql as the database for Active Record
-# gem 'mysql2'
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -40,6 +37,7 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn'
+gem 'bartt-ssl_requirement', '~>1.4.0', require: 'ssl_requirement'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'

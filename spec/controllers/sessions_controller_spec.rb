@@ -18,12 +18,17 @@ describe SessionsController do
 
   context 'new' do
     it 'renders new template' do
+      request.env['HTTPS'] = 'on'
       get :new
       expect(response).to render_template('new')
     end
   end
 
   context 'create' do
+    before :each do
+      request.env['HTTPS'] = 'on'
+    end
+
     let(:user_session){ double('UserSession', user: double(screen_name: 'some-screen-name')) }
     let(:login_details){ { email: 'some-email-id', password: 'some-password' } }
 

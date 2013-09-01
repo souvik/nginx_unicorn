@@ -7,10 +7,14 @@ describe UsersController do
   end
 
   context 'new' do
+    before :each do
+      request.env['HTTPS'] = 'on'
+    end
+
     it 'renders new template with users layout' do
       get :new
       expect(response).to render_template('new')
-      expect(response).to render_template('layouts/users')
+      expect(response).to render_template('layouts/application')
     end
 
     it 'should create new user' do
@@ -22,6 +26,10 @@ describe UsersController do
   end
 
   context 'create' do
+    before :each do
+      request.env['HTTPS'] = 'on'
+    end
+
     context 'with valid attributes' do
       let(:valid_attrs){ FactoryGirl.attributes_for(:user).merge(password: '123456', password_confirmation: '123456').stringify_keys }
 

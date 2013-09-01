@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  ssl_required :new, :create
+
   def new
     @user = User.new
   end
