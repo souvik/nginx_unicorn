@@ -14,7 +14,7 @@ describe UsersController do
     it 'renders new template with users layout' do
       get :new
       expect(response).to render_template('new')
-      expect(response).to render_template('layouts/application')
+      expect(response).to render_template('layouts/sessions')
     end
 
     it 'should create new user' do

@@ -21,6 +21,7 @@ describe SessionsController do
       request.env['HTTPS'] = 'on'
       get :new
       expect(response).to render_template('new')
+      expect(response).to render_template('layouts/sessions')
     end
   end
 

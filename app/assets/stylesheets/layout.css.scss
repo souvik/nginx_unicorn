@@ -36,8 +36,28 @@ body {
       padding: 4px 30px;
       border-bottom: solid 5px darken($main-color, 10%);
 
-      h1 {
-        font-size: 30px;
+      .header-profile-box {
+        float: right;
+        width: 430px;
+        text-align: right;
+
+        a {
+          text-decoration: none;
+          color: #FFF;
+        }
+
+        li {
+          display: inline;
+          margin: 0 12px;
+        }
+      }
+
+      #header-text {
+        width: 650px;
+
+        h1 {
+          font-size: 30px;
+        }
       }
     }
 
