@@ -46,6 +46,7 @@ group :development, :test do
   gem 'database_cleaner', '~> 1.1.1'
   gem 'spork-rails', git: 'https://github.com/sporkrb/spork-rails.git'
   gem 'faker', '~> 1.2.0'
+  gem 'cucumber-rails', '~> 1.4.0', require: false
 end
 
 # Use Capistrano for deployment
