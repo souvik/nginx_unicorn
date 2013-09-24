@@ -28,5 +28,7 @@ module NginxUnicorn
     config.generators do |g|
       g.factory_girl dir: "#{::Rails.root}/spec/factories"
     end
+
+    config.autoload_paths += %W(#{Rails.root}/lib)
   end
 end

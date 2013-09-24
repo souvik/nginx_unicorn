@@ -47,6 +47,7 @@ group :development, :test do
   gem 'spork-rails', git: 'https://github.com/sporkrb/spork-rails.git'
   gem 'faker', '~> 1.2.0'
   gem 'cucumber-rails', '~> 1.4.0', require: false
+  gem 'selenium-webdriver', '~> 2.35.1'
 end
 
 # Use Capistrano for deployment

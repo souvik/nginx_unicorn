@@ -20,3 +20,5 @@
 *.swp
 
 /public/assets
+
+.project

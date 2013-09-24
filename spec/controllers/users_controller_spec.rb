@@ -67,4 +67,29 @@ describe UsersController do
       end
     end
   end
+
+  context 'show' do
+    let(:user){ FactoryGirl.create(:user) }
+
+    context 'with invalid session' do
+      it 'redirects to login page' do
+        controller.stub(:logged_in?).and_return(false)
+
+        get :show, screen_name: user.screen_name
+        expect(response).to redirect_to(login_path)
+      end
+    end
+
+    context 'with valid session' do
+      it 'render user profile page' do
+        controller.stub(:logged_in?).and_return(true)
+        controller.stub(:current_user).and_return(user)
+        expect(User).to receive(:where).with(screen_name: user.screen_name)
+
+        get :show, screen_name: user.screen_name
+        expect(response).to render_template('show')
+        expect(response).to render_template('layouts/application')
+      end
+    end
+  end
 end

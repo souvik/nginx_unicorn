@@ -9,7 +9,7 @@ require 'cucumber/rails'
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.
-# Capybara.default_selector = :xpath
+Capybara.default_selector = :xpath
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how 
@@ -50,6 +50,12 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
+
+SslRequirement.disable_ssl_check = true
+Capybara.default_driver = :selenium
+# Capybara.register_driver :selenium do |app|
+#   Capybara::Selenium::Driver.new(app, browser: :chrome)
+# end
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   ssl_required :new, :create
+  perform_authorization_for :show
 
   def new
     @user = User.new
@@ -9,10 +10,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:screen_name] = @user.screen_name
       redirect_to profile_path(@user)
     else
       render action: :new
     end
+  end
+
+  def show
+    @user = User.where(screen_name: params[:screen_name])
   end
 
   private
