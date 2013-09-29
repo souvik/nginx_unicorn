@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  ssl_required :new, :create
+  ssl_required :new, :create, :destroy
+  perform_authorization_for :destroy
 
   def new
   end
@@ -15,5 +16,10 @@ class SessionsController < ApplicationController
       flash[:notice] = "Invalid Email/Password"
       render action: :new
     end
+  end
+
+  def destroy
+    reset_session
+    redirect_to root_url(secure: false)
   end
 end

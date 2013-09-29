@@ -49,4 +49,24 @@ describe SessionsController do
       expect(response).to render_template('new')
     end
   end
+
+  context 'destroy' do
+    before :each do
+      request.env['HTTPS'] = 'on'
+    end
+
+    it 'redirect to home page if logged in' do
+      session[:screen_name] = 'some-screen-name'
+      controller.stub(:logged_in?).and_return(true)
+
+      get :destroy
+      expect(session[:screen_name]).to be_nil
+      expect(response).to redirect_to(root_path)
+    end
+
+    it 'redirect to login page if not logged in' do
+      get :destroy
+      expect(response).to redirect_to(login_path)
+    end
+  end
 end

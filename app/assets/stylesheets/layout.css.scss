@@ -59,6 +59,27 @@ body {
           font-size: 30px;
         }
       }
+
+      .welcome-message {
+        width: 270px;
+        float: right;
+        margin: 10px 0;
+
+        li {
+          display: inline;
+          margin: 0 5px;
+
+          &#salutation {
+            border-right: 1px solid #ddd;
+            padding-right: 14px;
+          }
+
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+      }
     }
 
     .footer-section {

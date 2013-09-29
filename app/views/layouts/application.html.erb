@@ -9,6 +9,12 @@
 <body>
   <div class="body-container">
     <div class="header-section">
+      <div class="welcome-message">
+        <ul>
+          <li id="salutation">Welcome <%= @user.first_name.capitalize %>!</li>
+          <li><%= link_to 'Signout', logout_path %></li>
+        </ul>
+      </div>
       <div id="header-text"><h1>Welcome to NginxUnicorn!</h1></div>
     </div>
     <div class="container">

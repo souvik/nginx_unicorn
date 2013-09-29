@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  ssl_required :new, :create
+  ssl_required :new, :create, :show
   perform_authorization_for :show
 
   def new
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.where(screen_name: params[:screen_name])
+    @user = User.where(screen_name: params[:screen_name]).first
   end
 
   private

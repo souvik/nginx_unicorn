@@ -8,6 +8,7 @@ NginxUnicorn::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get '/login', to: 'sessions#new', as: :login
+  get '/logout', to: 'sessions#destroy', as: :logout
   post '/create', to: 'sessions#create', as: :create_session
 
   get '/users/:screen_name/show', to: 'users#show', as: :profile

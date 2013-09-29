@@ -8,7 +8,7 @@ module AuthorizeAccess
   module ClassMethods
     def perform_authorization_for(*action_names)
       include InstanceMethods
-      before_filter :perform_authorization, only: action_names.blank? ? [] : action_names
+      before_action :perform_authorization, only: action_names.blank? ? [] : action_names
     end
   end
 
