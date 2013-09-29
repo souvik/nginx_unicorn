@@ -2,31 +2,56 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.login-form-container {
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  width: 36%;
+.signin-container {
+  margin: 50px 60px;
 
-  .login-form {
-    padding: 65px 35px;
-    border: solid 2px $main-color;
-    @include rounded-corners(15px);
+  .signin-form {
+    padding: 30px;
+    width: 485px;
+    border-right: 2px solid $main-color;
 
-    .label {
-      width: 115px;
+    .form-row {
+      .row-label {
+        color: $main-color;
+        padding-top: 5px;
+      }
+
+      .row-field {
+        input {
+          border: 1px solid $main-color;
+          @include rounded-corners(5px);
+          height: 35px;
+          width: 380px;
+          color: $main-color;
+        }
+      }
     }
 
-    #login-link {
-      margin-left: 120px;
-      float: left;
-      @include link-buttons;
+    .action-bar {
+      padding: 5px 0;
+
+      #connect-me {
+        @include submit-btn;
+        padding: 5px 10px;
+
+        &:hover {
+          background-color: lighten($main-color, 1%);
+        }
+      }
+    }
+  }
+
+  .social-signin {
+    float: right;
+    width: 400px;
+    padding: 30px 50px;
+
+    h3 {
+      color: $main-color;
     }
 
-    #signup-link {
-      margin-left: 198px;
-      @include link-buttons;
+    li {
+      display: inline;
     }
   }
 }

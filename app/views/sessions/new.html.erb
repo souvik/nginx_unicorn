@@ -1,18 +1,25 @@
-<div class="login-form-container">
-  <div class=login-form>
+<div class="signin-container">
+  <div class="social-signin">
+    <h3>Login with:</h3>
+    <ul>
+      <li><%= link_to image_tag('auth_buttons/facebook_64.png', alt: 'Facebook'), '#' %></li>
+      <li><%= link_to image_tag('auth_buttons/twitter_64.png', alt: 'Twitter'), '#' %></li>
+      <li><%= link_to image_tag('auth_buttons/yahoo_64.png', alt: 'Yahoo'), '#' %></li>
+    </ul>
+  </div>
+  <div class=signin-form>
     <%= render partial: 'shared/display_flash_msg' %>
     <%= form_tag create_session_path do %>
       <div class="form-row">
-        <div class="row-label label"><%= label_tag :email %></div>
+        <div class="row-label label"><%= label_tag :email %>:</div>
         <div class="row-field"><%= text_field_tag :email, "", class: "validate[required,custom[email]]" %></div>
       </div>
       <div class="form-row">
-        <div class="row-label label"><%= label_tag :password %></div>
+        <div class="row-label label"><%= label_tag :password %>:</div>
         <div class="row-field"><%= password_field_tag :password, "", class: "validate[required]" %></div>
       </div>
       <div class="action-bar">
-        <div id="login-link"><%= link_to 'Login', '#' %></div>
-        <div id="signup-link"><%= link_to 'SignUp', new_user_path %></div>
+        <%= submit_tag 'Connect', id: 'connect-me' %>
       </div>
     <% end -%>
   </div>
