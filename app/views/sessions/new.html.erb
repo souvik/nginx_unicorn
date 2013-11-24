@@ -1,10 +1,10 @@
 <div class="signin-container">
   <div class="social-signin">
-    <h3>Login with:</h3>
+    <h3>Signin with:</h3>
     <ul>
-      <li><%= link_to image_tag('auth_buttons/facebook_64.png', alt: 'Facebook'), '#' %></li>
-      <li><%= link_to image_tag('auth_buttons/twitter_64.png', alt: 'Twitter'), '#' %></li>
-      <li><%= link_to image_tag('auth_buttons/yahoo_64.png', alt: 'Yahoo'), '#' %></li>
+      <li><%= link_to image_tag('auth_buttons/facebook_64.png', alt: 'Facebook'), '/auth/facebook', id: 'connect-fb', 'data-app-id' => '230323537123423' %></li>
+      <li><%= link_to image_tag('auth_buttons/twitter_64.png', alt: 'Twitter'), '#', id: 'connect-tw' %></li>
+      <li><%= link_to image_tag('auth_buttons/yahoo_64.png', alt: 'Yahoo'), '#', id: 'connect-yh' %></li>
     </ul>
   </div>
   <div class=signin-form>

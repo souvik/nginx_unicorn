@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130812180850) do
+ActiveRecord::Schema.define(version: 20131124133758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "facebook_accounts", force: true do |t|
+    t.integer  "user_id",                default: 0
+    t.string   "identifier", limit: 100, default: ""
+    t.string   "username",               default: ""
+    t.boolean  "verified",               default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name",         limit: 60,  default: ""

@@ -69,6 +69,10 @@ describe UsersController do
   end
 
   context 'show' do
+    before :each do
+      request.env['HTTPS'] = 'on'
+    end
+
     let(:user){ FactoryGirl.create(:user) }
 
     context 'with invalid session' do
@@ -84,7 +88,7 @@ describe UsersController do
       it 'render user profile page' do
         controller.stub(:logged_in?).and_return(true)
         controller.stub(:current_user).and_return(user)
-        expect(User).to receive(:where).with(screen_name: user.screen_name)
+        User.stub_chain(:where, :first).with(screen_name: user.screen_name).with(no_args).and_return(user)
 
         get :show, screen_name: user.screen_name
         expect(response).to render_template('show')

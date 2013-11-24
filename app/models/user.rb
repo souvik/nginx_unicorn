@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
   validates :password, presence: true, confirmation: true
 
+  has_one :facebook_account
+
   after_validation :set_screen_name
 
   def password=(password)
@@ -20,6 +22,12 @@ class User < ActiveRecord::Base
 
   def authentic_user?(password)
     decrypt_password(self.encrypted_password) == password
+  end
+
+  def create_profile_from_fb(profile)
+    fb_account = FacebookAccount.new(user: self, identifier: profile[:id],
+                                     username: profile[:username], verified: profile[:verified])
+    fb_account.save
   end
 
   private

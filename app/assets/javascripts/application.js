@@ -16,4 +16,5 @@
 //= require_tree ./plugins
 //= require global
 //= require sessions
+//= require social_session
 //= require users
