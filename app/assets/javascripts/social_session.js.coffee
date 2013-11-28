@@ -24,16 +24,15 @@
 
                 FB.login (response) ->
                     if response.authResponse
-                        console.log 'Logged In'
-                        console.log response
                         FB.api "/me", (response) ->
                             console.log response
                             fbUserParams =
                                fb_session:
-                                   id: response.id
+                                   identifier: response.id
                                    first_name: response.first_name
                                    last_name: response.last_name
                                    username: response.username
+                                   email: response.email
                                    location: response.location.name
                                    verified: response.verified
 

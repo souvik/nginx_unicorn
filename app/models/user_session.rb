@@ -24,7 +24,9 @@ class UserSession
     return true if @user.instance_of?(User) && @user.facebook_account.present?
     @user = User.create(first_name: @fb_details[:first_name],
                         last_name: @fb_details[:last_name],
-                        email: @fb_details[:email]) unless @user.instance_of?(User)
+                        location: @fb_details[:location],
+                        email: @fb_details[:email],
+                        authenticated: true) unless @user.instance_of?(User)
     @user.create_profile_from_fb(@fb_details)
   end
 end

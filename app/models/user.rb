@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, presence: true, length: { maximum: 60 }
   validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
-  validates :password, presence: true, confirmation: true
+  validates :password, presence: true, confirmation: true, unless: Proc.new{ |u| u.authenticated? }
 
-  has_one :facebook_account
+  has_one :facebook_account, dependent: :destroy
 
   after_validation :set_screen_name
 
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def create_profile_from_fb(profile)
-    fb_account = FacebookAccount.new(user: self, identifier: profile[:id],
+    fb_account = FacebookAccount.new(user: self, identifier: profile[:identifier],
                                      username: profile[:username], verified: profile[:verified])
     fb_account.save
   end

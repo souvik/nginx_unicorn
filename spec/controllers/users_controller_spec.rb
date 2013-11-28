@@ -34,7 +34,7 @@ describe UsersController do
       let(:valid_attrs){ FactoryGirl.attributes_for(:user).merge(password: '123456', password_confirmation: '123456').stringify_keys }
 
       it 'create a new user' do
-        expect{post :create, user: valid_attrs }.to change(User, :count).by(1)
+        expect{ post :create, user: valid_attrs }.to change(User, :count).by(1)
       end
 
       it 'assigns a newly created user as @user' do

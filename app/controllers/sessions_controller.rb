@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user_session = fb_login? ? UserSession.new(nil, params[:fb_session]) : UserSession.new({email: params[:email], password: params[:password]})
+    user_session = fb_login? ? UserSession.new({}, params[:fb_session]) : UserSession.new({email: params[:email], password: params[:password]})
     authenticity_validated = user_session.valid?
 
     if authenticity_validated

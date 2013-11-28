@@ -17,7 +17,7 @@ describe UserSession do
     end
 
     context 'for facebook session' do
-      subject{ UserSession.new({}, {id: 'some-id', first_name: 'some-name', last_name: 'some-surname',
+      subject{ UserSession.new({}, {identifier: 'some-id', first_name: 'some-name', last_name: 'some-surname',
                                     email: 'some-email@email.com', username: 'some-username', verified: true}) }
 
       it 'returns true when first time login' do
@@ -27,7 +27,7 @@ describe UserSession do
   end
 
   context 'facebook session validator' do
-    subject{ UserSession.new({}, { id: '100000179221741',
+    subject{ UserSession.new({}, { identifier: '100000179221741',
                                    email: 'some-email',
                                    first_name: 'some-name',
                                    last_name: 'some-surname',

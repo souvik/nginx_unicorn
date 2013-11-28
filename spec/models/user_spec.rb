@@ -34,19 +34,19 @@ describe User do
 
   context 'create profile from facebook' do
     let(:user){ FactoryGirl.create(:user, email: 'some-email@email.com') }
-    let(:fb_details){{ id: '11212233243', email: 'some-email@email.com',
+    let(:fb_details){ {identifier: '11212233243', email: 'some-email@email.com',
                        first_name: 'some-name', last_name: 'some-surname',
-                       username: 'some-username', verified: true }}
+                       username: 'some-username', verified: true} }
 
     it{ expect(user.create_profile_from_fb(fb_details)).to be_true }
 
     it 'create profile from facebook' do
       user.create_profile_from_fb(fb_details)
-      expect(user.facebook_account.identifier).to eq(fb_details[:id])
+      expect(user.facebook_account.identifier).to eq(fb_details[:identifier])
     end
 
     it 'won\'t create facebook profile without a ID' do
-      user.create_profile_from_fb(fb_details.merge(id: ''))
+      user.create_profile_from_fb(fb_details.merge(identifier: ''))
       expect(user.facebook_account).to be_nil
     end
   end

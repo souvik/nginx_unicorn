@@ -52,14 +52,24 @@ describe SessionsController do
     end
 
     context 'through facebook sign-in' do
-      let(:fb_details){ {identifier: 'some-id', first_name: 'some-name', last_name: 'some-surname', username: 'some-username'} }
+      let(:fb_details){ {identifier: 'some-id',
+                         email: 'some-email@email.com',
+                         first_name: 'some-name',
+                         last_name: 'some-surname',
+                         username: 'some-username'} }
 
       it 'returns status 201 for valid facebook sign-in' do
-        expect(UserSession).to receive(:new).with(nil, fb_details.stringify_keys).and_return(user_session)
+        expect(UserSession).to receive(:new).with({}, fb_details.stringify_keys).and_return(user_session)
         expect(user_session).to receive(:valid?).and_return(true)
         xhr :post, :create, fb_session: fb_details
 
         expect(response.status).to eq(201)
+      end
+
+      context 'first time' do
+        subject{ xhr :post, :create, fb_session: fb_details }
+        specify{ expect{ subject }.to change{ User.count }.by(1) }
+        specify{ expect{ subject }.to change{ FacebookAccount.count }.by(1) }
       end
     end
   end
