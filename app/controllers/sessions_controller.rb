@@ -15,7 +15,9 @@ class SessionsController < ApplicationController
     end
 
     if request.xhr?
-      render json: {validated: authenticity_validated}, status: (authenticity_validated ? :created : :unprocessible_entity)
+      render json: { validated: authenticity_validated,
+                     redirect_url: (authenticity_validated ? profile_url(session[:screen_name]) : '') },
+             status: authenticity_validated ? :created : :unproccessible_entity
     else
       authenticity_validated ? redirect_to(profile_path(current_user.screen_name)) : render(action: :new, notice: "Invalid Email/Password")
     end
