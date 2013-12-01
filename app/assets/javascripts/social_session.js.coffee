@@ -4,8 +4,7 @@
   App.SocialSession =
     init: ->
       @initFBAuth()
-      #@initTwitterAuth()
-      #@initYahooAuth()
+      @initGooglePlusAuth()
 
     initFBAuth: ->
       $('body').prepend('<div id="fb-root"></div>')
@@ -45,6 +44,29 @@
             else
               console.log 'Connection Closed'
 
+    googleSigninCallback: (authResult) ->
+      token = gapi.auth.getToken()
+      accessToken = token.access_token
+
+    initGooglePlusAuth: ->
+      googlePlusLink = $(".social-signin a#connect-gplus")
+      defaultOptions =
+        clientid: googlePlusLink.attr("data-clientid")
+        cookiepolicy: googlePlusLink.attr("data-cookiepolicy")
+        requestvisibleactions: googlePlusLink.attr("data-requestvisibleactions")
+        scope: googlePlusLink.attr("data-scope")
+
+      if googlePlusLink.size() > 0
+        $.ajax
+          url: "#{window.location.protocol}//apis.google.com/js/client:plusone.js"
+          dataType: "script"
+          cache: true
+          success: ->
+            googlePlusLink.bind "click", (e) ->
+              e.preventDefault()
+              gapi.auth.signIn $.extend(defaultOptions,
+                callback: @googleSigninCallback
+              )
 
 
   $(document).ready ->

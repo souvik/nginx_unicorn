@@ -3,8 +3,11 @@
     <h3>Signin with:</h3>
     <ul>
       <li><%= link_to image_tag('auth_buttons/facebook_64.png', alt: 'Facebook'), '/auth/facebook', id: 'connect-fb', 'data-app-id' => '230323537123423' %></li>
-      <li><%= link_to image_tag('auth_buttons/twitter_64.png', alt: 'Twitter'), '#', id: 'connect-tw' %></li>
-      <li><%= link_to image_tag('auth_buttons/yahoo_64.png', alt: 'Yahoo'), '#', id: 'connect-yh' %></li>
+      <li><%= link_to image_tag('auth_buttons/google_plus_64.png', alt: 'Google+'), '#', id: 'connect-gplus',
+                                'data-clientid' => '20406359348-tvaieap39rhot704r9oept07unh1mbkb.apps.googleusercontent.com',
+                                'data-cookiepolicy' => 'single_host_origin',
+                                'data-requestvisibleactions' => 'http://schemas.google.com/AddActivity',
+                                'data-scope' => 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email' %></li>
     </ul>
   </div>
   <div class=signin-form>
