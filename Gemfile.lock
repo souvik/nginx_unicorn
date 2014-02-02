@@ -6,14 +6,6 @@ GIT
       rails (>= 3.0.0, < 5)
       spork (>= 1.0rc0)
 
-GIT
-  remote: https://github.com/thoughtbot/shoulda-matchers.git
-  revision: 2b452d5d3970e7319d0d4ea82942960616e05453
-  branch: dp-rails-four
-  specs:
-    shoulda-matchers (2.2.0)
-      activesupport (>= 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -155,6 +147,8 @@ GEM
       multi_json (~> 1.0)
       rubyzip (< 1.0.0)
       websocket (~> 1.0.4)
+    shoulda-matchers (2.5.0)
+      activesupport (>= 3.0.0)
     spork (1.0.0rc3)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -207,7 +201,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver (~> 2.35.1)
-  shoulda-matchers!
+  shoulda-matchers (~> 2.5.0)
   spork-rails!
   therubyracer
   turbolinks

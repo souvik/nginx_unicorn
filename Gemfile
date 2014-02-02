@@ -41,7 +41,7 @@ gem 'bartt-ssl_requirement', '~>1.4.0', require: 'ssl_requirement'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'dp-rails-four'
+  gem 'shoulda-matchers', '~> 2.5.0'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'database_cleaner', '~> 1.1.1'
   gem 'spork-rails', git: 'https://github.com/sporkrb/spork-rails.git'
