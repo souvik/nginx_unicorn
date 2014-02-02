@@ -21,7 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ![codeship status](https://www.codeship.io/projects/1a00c250-6e45-0131-5ca5-7626a822c2a2/status)
+![codeship status](https://www.codeship.io/projects/1a00c250-6e45-0131-5ca5-7626a822c2a2/status)
 
 
 Please feel free to use a different markup language if you do not plan to run
