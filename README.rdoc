@@ -1,4 +1,4 @@
-![Codeship Status](https://www.codeship.io/projects/1a00c250-6e45-0131-5ca5-7626a822c2a2/status)
+[Codeship Status](https://www.codeship.io/projects/1a00c250-6e45-0131-5ca5-7626a822c2a2/status)
 
 == README
 
