@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe UserSession do
+RSpec.describe UserSession do
   context 'validator' do
     context 'for normal session' do
       before :each do
@@ -21,7 +21,7 @@ describe UserSession do
                                     email: 'some-email@email.com', username: 'some-username', verified: true}) }
 
       it 'returns true when first time login' do
-        expect(subject.valid?).to be_true
+        expect(subject.valid?).to be_truthy
       end
     end
   end
@@ -35,8 +35,9 @@ describe UserSession do
                                    verified: true }) }
 
     context '1st time login through facebook' do
-      its('user'){ should be_a(AnonymousUser) }
-      it {expect(subject.fb_session_validator).to be_true}
+      #its('user'){ should be_a(AnonymousUser) }
+      it{ expect(subject.user).to be_a_new(AnonymousUser) }
+      it{ expect(subject.fb_session_validator).to be_truthy }
     end
   end
 end

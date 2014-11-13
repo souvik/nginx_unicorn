@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe UsersController do
+RSpec.describe UsersController do
   context 'routing' do
     specify{ expect(get: '/users/new').to route_to('users#new') }
     specify{ expect(post: '/users').to route_to('users#create') }
@@ -53,7 +53,7 @@ describe UsersController do
       let(:invalid_attrs){ {'first_name' => '', 'last_name' => 'xxx'} }
 
       before :each do
-        User.any_instance.stub(:save).and_return(false)
+        allow_any_instance_of(User).to receive(:save).and_return(false)
       end
 
       it 'assigns a newly create but unsaved user as @user' do
@@ -77,7 +77,7 @@ describe UsersController do
 
     context 'with invalid session' do
       it 'redirects to login page' do
-        controller.stub(:logged_in?).and_return(false)
+        allow(controller).to receive(:logged_in?).and_return(false)
 
         get :show, screen_name: user.screen_name
         expect(response).to redirect_to(login_path)
@@ -86,9 +86,9 @@ describe UsersController do
 
     context 'with valid session' do
       it 'render user profile page' do
-        controller.stub(:logged_in?).and_return(true)
-        controller.stub(:current_user).and_return(user)
-        User.stub_chain(:where, :first).with(screen_name: user.screen_name).with(no_args).and_return(user)
+        allow(controller).to receive(:logged_in?).and_return(true)
+        allow(controller).to receive(:current_user).and_return(user)
+        allow(User).to receive_message_chain(:where, :first) { user }
 
         get :show, screen_name: user.screen_name
         expect(response).to render_template('show')

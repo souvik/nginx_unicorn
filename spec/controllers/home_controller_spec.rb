@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe HomeController do
+RSpec.describe HomeController, type: :controller do
   describe 'routing' do
     context '/index or /' do
       specify{ expect(get: '/').to be_routable }

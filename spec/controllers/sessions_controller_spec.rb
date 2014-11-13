@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe SessionsController do
+RSpec.describe SessionsController, type: :controller do
   describe 'routing' do
     context '/login' do
       specify{ expect(get: '/login').to be_routable }
@@ -81,7 +81,7 @@ describe SessionsController do
 
     it 'redirect to home page if logged in' do
       session[:screen_name] = 'some-screen-name'
-      controller.stub(:logged_in?).and_return(true)
+      allow(controller).to receive(:logged_in?).and_return(true)
 
       get :destroy
       expect(session[:screen_name]).to be_nil

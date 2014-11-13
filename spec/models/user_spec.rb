@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe User do
+RSpec.describe User do
   it{ should validate_presence_of :first_name }
   it{ should validate_presence_of :last_name }
   it{ should validate_presence_of :email }
@@ -20,15 +20,15 @@ describe User do
     let(:user){ FactoryGirl.build(:user) }
 
     before :each do
-      user.stub(:decrypt_password).and_return('some-password')
+      allow(user).to receive(:decrypt_password).and_return('some-password')
     end
 
     it 'should not return true for wrong password' do
-      expect(user.authentic_user?('some-other-password')).not_to be_true
+      expect(user.authentic_user?('some-other-password')).not_to be_truthy
     end
 
     it 'should return true for correct password' do
-      expect(user.authentic_user?('some-password')).to be_true
+      expect(user.authentic_user?('some-password')).to be_truthy
     end
   end
 
@@ -38,7 +38,7 @@ describe User do
                        first_name: 'some-name', last_name: 'some-surname',
                        username: 'some-username', verified: true} }
 
-    it{ expect(user.create_profile_from_fb(fb_details)).to be_true }
+    it{ expect(user.create_profile_from_fb(fb_details)).to be_truthy }
 
     it 'create profile from facebook' do
       user.create_profile_from_fb(fb_details)
@@ -47,7 +47,7 @@ describe User do
 
     it 'won\'t create facebook profile without a ID' do
       user.create_profile_from_fb(fb_details.merge(identifier: ''))
-      expect(user.facebook_account).to be_nil
+      expect(user.reload.facebook_account).to be_nil
     end
   end
 end

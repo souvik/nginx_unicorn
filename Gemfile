@@ -37,17 +37,17 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn'
-gem 'bartt-ssl_requirement', '~>1.4.0', require: 'ssl_requirement'
+gem 'bartt-ssl_requirement', '~> 1.4.0', require: 'ssl_requirement'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14.0'
-  gem 'shoulda-matchers', '~> 2.6.0'
-  gem 'factory_girl_rails', '~> 4.2.1'
-  gem 'database_cleaner', '~> 1.1.1'
-  gem 'spork-rails', git: 'https://github.com/sporkrb/spork-rails.git'
-  gem 'faker', '~> 1.2.0'
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'shoulda-matchers', '~> 2.7.0'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'faker', '~> 1.4.3'
   gem 'cucumber-rails', '~> 1.4.0', require: false
-  gem 'selenium-webdriver', '~> 2.35.1'
+  gem 'selenium-webdriver', '~> 2.44.0'
+  gem 'capybara', '~> 2.4.4'
 end
 
 # Use Capistrano for deployment
