@@ -21,25 +21,25 @@ worker_processes 4
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory "/home/souvik/personal/nginx_unicorn" # available in 0.94.0+
+working_directory "/home/souvik/projects/nginx_unicorn" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 # listen "/path/to/.unicorn.sock", :backlog => 64
 #listen 8080, :tcp_nopush => true
-listen "/home/souvik/personal/nginx_unicorn/tmp/sockets/nginx_unicorn.sock", backlog: 64
+listen "/home/souvik/projects/nginx_unicorn/tmp/sockets/nginx_unicorn.sock", backlog: 64
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
 
 # feel free to point this anywhere accessible on the filesystem
-pid "/home/souvik/personal/nginx_unicorn/tmp/pids/unicorn.pid"
+pid "/home/souvik/projects/nginx_unicorn/tmp/pids/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
 # so prevent them from going to /dev/null when daemonized here:
-stderr_path "/home/souvik/personal/nginx_unicorn/log/unicorn.stderr.log"
-stdout_path "/home/souvik/personal/nginx_unicorn/log/unicorn.stdout.log"
+stderr_path "/home/souvik/projects/nginx_unicorn/log/unicorn.stderr.log"
+stdout_path "/home/souvik/projects/nginx_unicorn/log/unicorn.stdout.log"
 
 # combine Ruby 2.0.0dev or REE with "preload_app true" for memory savings
 # http://rubyenterpriseedition.com/faq.html#adapt_apps_for_cow
