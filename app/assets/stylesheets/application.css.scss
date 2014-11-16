@@ -12,6 +12,8 @@
  *= require_tree ./global
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "layout.css.scss";
 @import "sessions.css.scss";
 @import "users.css.scss"
