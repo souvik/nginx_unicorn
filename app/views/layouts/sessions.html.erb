@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>NginxUnicorn: Welcome</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="body-container">
-    <div class="header-section">
-      <div class="header-profile-box">
-        <ul>
-          <li><%= link_to "Signin", login_path(secure: true) %></li>
-          <li><%= link_to "Signup", new_user_path(secure: true) %></li>
-        </ul>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NginxUnicorn: Welcome</title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to 'NginxUnicorn!', root_path, class: 'navbar-brand' %>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nu-nav-action-bar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="nu-nav-action-bar-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Home', root_path %></li>
+          </ul>
+          <div class="navbar-right no-margin">
+            <%= link_to 'Sign in', login_path(secure: true), { class: 'btn btn-primary navbar-btn' } %>
+            <%= link_to 'Sign up', new_user_path(secure: true), { class: 'btn btn-primary navbar-btn' } %>
+          </div>
+        </div>
       </div>
-      <div id="header-text"><h1>Welcome to NginxUnicorn!</h1></div>
-    </div>
-    <div class="container">
+    </nav>
+    <div>
       <%= yield %>
     </div>
-    <div class="footer-section"></div>
-  </div>
-</body>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  </body>
 </html>

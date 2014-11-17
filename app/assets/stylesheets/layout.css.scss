@@ -27,7 +27,13 @@ $error-color: #EE0101;
   @include rounded-corners(4px);
 }
 
+.no-margin {
+  margin: 0;
+}
 body {
+  padding-top: 70px;
+}
+/*body {
   margin: 0;
   padding: 0;
   background-color: #FFF;
@@ -138,4 +144,4 @@ body {
   #connect-me {
     @include submit-btn;
   }
-}
+}*/
